@@ -16,3 +16,38 @@ This project is designed to perform 3D bone segmentation using DICOM format data
 1. Building using Emscripten for WebAssembly
 - [Official Build Option VTK WASM]
     (https://docs.vtk.org/en/latest/advanced/build_wasm_emscripten.html)
+
+```bash
+emcmake cmake .. \
+-DBUILD_SHARED_LIBS:BOOL=OFF \
+-DCMAKE_BUILD_TYPE:STRING=Release \
+-DVTK_ENABLE_LOGGING:BOOL=OFF \
+-DVTK_ENABLE_WRAPPING:BOOL=OFF \
+-DVTK_MODULE_ENABLE_VTK_hdf5:STRING=NO \
+-DVTK_MODULE_ENABLE_VTK_RenderingContextOpenGL2:STRING=DONT_WANT \
+-DVTK_MODULE_ENABLE_VTK_RenderingLICOpenGL2:STRING=DONT_WANT \
+-DVTK_MODULE_ENABLE_VTK_RenderingCellGrid:STRING=NO \
+```
+
+2. Build File 
+```bash
+cd /project/directory/
+mkdir build
+cd build
+emcmake cmake .. -DVTK_DIR="VTK_BUILD_PATH"
+emcmake make
+```
+
+## Use Wasm In Ts
+```bash
+export const createWasmExportsByGL = (_canvas: HTMLCanvasElement | null) => {
+    return {
+        canvas: _canvas,
+        onRuntimeInitialized: function () {
+            setTimeout(() => {
+                window.dispatchEvent(new Event("resize"))
+            })
+        }
+    }
+}
+```
