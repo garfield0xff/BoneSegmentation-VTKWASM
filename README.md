@@ -1,5 +1,5 @@
 # BoneSegmentation - VTK, WASM
-<img src="![GIFMaker_me](https://github.com/doneisdone36/Skeleton/assets/71868697/c05c26f5-98ab-453f-b3ec-fd5a3eb0c68f)">
+<img src="![GIFMaker_me](https://github.com/garfield0xff/BoneSegmentation-VTKWASM/assets/170846390/45a27ac7-ec36-4352-9cfe-fbf8b87934d9)">
 
 # Project
 This project is designed to perform 3D bone segmentation using DICOM format data in the coronal, sagittal, and axial dimensions. It includes features such as rotation and mesh boolean operations.
